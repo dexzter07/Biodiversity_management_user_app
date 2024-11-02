@@ -16,7 +16,7 @@ class SplashController extends GetxController {
             await SharedPreferences.getInstance();
         var token = sharedPreferences.getString("token");
         Get.offAll(() =>
-            token != null ? NavScreenBar(currentIndex: 0) : const LoginPage());
+            token == null ? NavScreenBar(currentIndex: 0) : const LoginPage());
       },
     );
   }

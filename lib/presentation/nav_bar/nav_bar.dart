@@ -1,6 +1,11 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wbbb_user/core/app_export.dart';
+import 'package:wbbb_user/presentation/feedbacks/feedbacks.dart';
+import 'package:wbbb_user/presentation/home_page/home_page.dart';
+import 'package:wbbb_user/presentation/publications/publications.dart';
+
+import '../notifications/notifications.dart';
 
 class NavScreenBar extends StatefulWidget {
   int currentIndex = 0;
@@ -20,7 +25,12 @@ class _NavScreenBarState extends State<NavScreenBar>
 
   @override
   Widget build(BuildContext context) {
-    final pages = [];
+    final pages = [
+      const HomePage(),
+      const Publications(),
+      const Feedbacks(),
+      const Notifications(),
+    ];
     return Scaffold(
       backgroundColor: AppColors.backgroundRegular,
       extendBody: true,
@@ -32,6 +42,7 @@ class _NavScreenBarState extends State<NavScreenBar>
           margin: EdgeInsets.zero,
           child: DotNavigationBar(
             itemPadding: const EdgeInsets.symmetric(horizontal: 19),
+            dotIndicatorColor: Colors.transparent,
             backgroundColor: Colors.white,
             currentIndex: widget.currentIndex,
             onTap: changePage,
@@ -45,8 +56,8 @@ class _NavScreenBarState extends State<NavScreenBar>
                 children: [
                   SvgPicture.asset(
                     "assets/icons/svg/home.svg",
-                    width: 18,
-                    height: 18,
+                    width: 24,
+                    height: 24,
                     color: widget.currentIndex == 0
                         ? AppColors.primaryRegular
                         : AppColors.onSurfaceRegular,
@@ -62,30 +73,27 @@ class _NavScreenBarState extends State<NavScreenBar>
                 ],
               )),
               DotNavigationBarItem(
-                icon: Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/icons/expenses_nav.png",
-                        width: 18,
-                        height: 18,
-                        color: widget.currentIndex == 0
-                            ? AppColors.primaryRegular
-                            : AppColors.onSurfaceRegular,
-                      ),
-                      Text(
-                        "Home",
-                        style: CustomTextStyle.labelSmall(
-                            fontSize: 10,
-                            color: widget.currentIndex == 0
-                                ? AppColors.primaryRegular
-                                : AppColors.textSecondary),
-                      )
-                    ],
-                  ),
+                icon: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/svg/publications.svg",
+                      width: 24,
+                      height: 24,
+                      color: widget.currentIndex == 1
+                          ? AppColors.primaryRegular
+                          : AppColors.onSurfaceRegular,
+                    ),
+                    Text(
+                      "Publications",
+                      style: CustomTextStyle.labelSmall(
+                          fontSize: 10,
+                          color: widget.currentIndex == 1
+                              ? AppColors.primaryRegular
+                              : AppColors.textSecondary),
+                    )
+                  ],
                 ),
               ),
               DotNavigationBarItem(
@@ -93,19 +101,19 @@ class _NavScreenBarState extends State<NavScreenBar>
                   padding: const EdgeInsets.only(top: 2),
                   child: Column(
                     children: [
-                      Image.asset(
-                        "assets/icons/Create.png",
-                        width: 17,
-                        height: 17,
-                        color: widget.currentIndex == 0
+                      SvgPicture.asset(
+                        "assets/icons/svg/feedbacks.svg",
+                        width: 24,
+                        height: 24,
+                        color: widget.currentIndex == 2
                             ? AppColors.primaryRegular
                             : AppColors.onSurfaceRegular,
                       ),
                       Text(
-                        "Home",
+                        "Feedbacks",
                         style: CustomTextStyle.labelSmall(
                             fontSize: 10,
-                            color: widget.currentIndex == 0
+                            color: widget.currentIndex == 2
                                 ? AppColors.primaryRegular
                                 : AppColors.textSecondary),
                       )
@@ -118,19 +126,19 @@ class _NavScreenBarState extends State<NavScreenBar>
                 padding: const EdgeInsets.only(top: 2),
                 child: Column(
                   children: [
-                    Image.asset(
-                      "assets/icons/profile.png",
-                      width: 17,
-                      height: 17,
-                      color: widget.currentIndex == 0
+                    SvgPicture.asset(
+                      "assets/icons/svg/notifications.svg",
+                      width: 24,
+                      height: 24,
+                      color: widget.currentIndex == 3
                           ? AppColors.primaryRegular
                           : AppColors.onSurfaceRegular,
                     ),
                     Text(
-                      "Home",
+                      "Notifications",
                       style: CustomTextStyle.labelSmall(
                           fontSize: 10,
-                          color: widget.currentIndex == 0
+                          color: widget.currentIndex == 3
                               ? AppColors.primaryRegular
                               : AppColors.textSecondary),
                     )
