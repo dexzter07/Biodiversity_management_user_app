@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wbbb_user/core/app_export.dart';
+import 'package:wbbb_user/presentation/notifications/widgets/notification_component.dart';
 
 class Notifications extends StatelessWidget {
   const Notifications({super.key});
@@ -30,6 +31,18 @@ class Notifications extends StatelessWidget {
                 width: 24,
                 height: 24,
               )),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        child: ListView(
+          children: const [
+            NotificationComponent(),
+            SizedBox(
+              height: 10,
+            ),
+            NotificationComponent(),
+          ],
         ),
       ),
     );
