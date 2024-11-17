@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wbbb_user/core/app_export.dart';
+import 'package:wbbb_user/presentation/flora_and_fauna/flora_and_fauna.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_bmc_pbr.dart';
+import 'package:wbbb_user/presentation/home_page/widgets/custom_drawer.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_flora_fauna.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_heritage_sites.dart';
 
@@ -27,27 +30,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundRegular,
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         backgroundColor: AppColors.surfaceRegular,
         title: Text(
           "Home",
           style: CustomTextStyle.titleMedium(),
         ),
-        leading: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: Container(
+        leading: Builder(
+          builder: (context) => GestureDetector(
+            onTap: () {
+              Scaffold.of(context).openDrawer(); // Access Scaffold's drawer
+            },
+            child: Container(
               margin: const EdgeInsets.only(left: 14, top: 8, bottom: 8),
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                  color: AppColors.backgroundLight,
-                  borderRadius: BorderRadius.circular(30)),
+                color: AppColors.backgroundLight,
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: SvgPicture.asset(
                 "assets/icons/svg/hamburger.svg",
                 width: 24,
                 height: 24,
-              )),
+              ),
+            ),
+          ),
         ),
       ),
       body: ListView(
@@ -147,14 +155,19 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: [
               Text(
-                "Procted Flora & Fauna",
+                "Protected Flora & Fauna",
                 style: CustomTextStyle.titleMedium(),
               ),
               const Spacer(),
-              Text(
-                "View all >",
-                style:
-                    CustomTextStyle.labelLarge(color: AppColors.primaryRegular),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const FloraAndFauna());
+                },
+                child: Text(
+                  "View all >",
+                  style: CustomTextStyle.labelLarge(
+                      color: AppColors.primaryRegular),
+                ),
               )
             ],
           ),
