@@ -3,6 +3,7 @@ import 'package:wbbb_user/presentation/flora_and_fauna/detail_page.dart';
 import '../../core/app_export.dart';
 
 class FaunaGrid extends StatelessWidget {
+  final String? searchText;
   final List<Map<String, String>> faunaData = [
     {
       'title': 'Bengal Tiger',
@@ -36,18 +37,18 @@ class FaunaGrid extends StatelessWidget {
     },
   ];
 
-  FaunaGrid({super.key});
+  FaunaGrid({super.key, this.searchText});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
       child: GridView.builder(
+        padding: EdgeInsets.zero,
         itemCount: faunaData.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
         ),
         itemBuilder: (context, index) {
           return InkWell(

@@ -211,9 +211,18 @@ class _HomePageState extends State<HomePage> {
           ),
           Row(
             children: [
-              Text(
-                "BMC & PBR",
-                style: CustomTextStyle.titleMedium(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "BMC & PBR",
+                    style: CustomTextStyle.titleMedium(),
+                  ),
+                  Text(
+                    "Biodiversity Management Committee\n& People's Biodiversity Register",
+                    style: CustomTextStyle.bodySmall(),
+                  ),
+                ],
               ),
               const Spacer(),
               Text(

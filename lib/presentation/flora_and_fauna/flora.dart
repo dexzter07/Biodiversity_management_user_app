@@ -3,6 +3,7 @@ import 'package:wbbb_user/presentation/flora_and_fauna/detail_page.dart';
 import '../../core/app_export.dart';
 
 class FloraGrid extends StatelessWidget {
+  final String? searchText;
   final List<Map<String, String>> floraData = [
     {
       'title': 'Teak',
@@ -34,20 +35,25 @@ class FloraGrid extends StatelessWidget {
       'image':
           'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Nilambur_Teak_Plantation_0666.jpg/440px-Nilambur_Teak_Plantation_0666.jpg'
     },
+    {
+      'title': 'Lotus',
+      'image':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Nilambur_Teak_Plantation_0666.jpg/440px-Nilambur_Teak_Plantation_0666.jpg'
+    },
   ];
 
-  FloraGrid({super.key});
+  FloraGrid({super.key, this.searchText});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
       child: GridView.builder(
+        padding: EdgeInsets.zero,
         itemCount: floraData.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
         ),
         itemBuilder: (context, index) {
           return InkWell(

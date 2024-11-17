@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wbbb_user/core/app_export.dart';
+import 'package:wbbb_user/presentation/about/about_page.dart';
 import 'package:wbbb_user/presentation/activities/past_activities/past_activities.dart';
 import 'package:wbbb_user/presentation/activities/upcoming_activities/upcoming_activities.dart';
 import 'package:wbbb_user/presentation/flora_and_fauna/flora_and_fauna.dart';
 import 'package:wbbb_user/presentation/help_and_support/help_and_support.dart';
 import 'package:wbbb_user/presentation/profiles/profile.dart';
 import 'package:wbbb_user/presentation/setting_page/setting_page.dart';
-import 'package:wbbb_user/theme/custom_textstyle.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -157,12 +157,13 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: SvgPicture.asset("assets/icons/svg/info-circle.svg"),
-
                   title: Text(
                     'About WBBB',
                     style: CustomTextStyle.labelLarge(),
                   ),
-                  onTap: () {}, // Add functionality
+                  onTap: () {
+                    Get.to(() => const AboutWBBBPage());
+                  },
                 ),
               ],
             ),
