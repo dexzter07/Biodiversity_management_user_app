@@ -55,7 +55,7 @@ class Publications extends StatelessWidget {
                             child: CupertinoSearchTextField(
                               padding: const EdgeInsets.all(8),
                               prefixInsets: const EdgeInsets.only(left: 12),
-                              placeholder: "Search flora or fauna",
+                              placeholder: "Search Publications",
                               onChanged: (value) {},
                               backgroundColor: AppColors.surfaceDark,
                               borderRadius: BorderRadius.circular(30),
