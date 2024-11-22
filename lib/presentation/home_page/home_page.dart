@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wbbb_user/core/app_export.dart';
+import 'package:wbbb_user/presentation/bmc_pbr.dart/bmc_pbr.dart';
 import 'package:wbbb_user/presentation/flora_and_fauna/flora_and_fauna.dart';
+import 'package:wbbb_user/presentation/heritages/heritages.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_bmc_pbr.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_drawer.dart';
 import 'package:wbbb_user/presentation/home_page/widgets/custom_flora_fauna.dart';
@@ -107,10 +109,15 @@ class _HomePageState extends State<HomePage> {
                 style: CustomTextStyle.titleMedium(),
               ),
               const Spacer(),
-              Text(
-                "View all >",
-                style:
-                    CustomTextStyle.labelLarge(color: AppColors.primaryRegular),
+              InkWell(
+                onTap: () {
+                  Get.to(() => const Heritages());
+                },
+                child: Text(
+                  "View all >",
+                  style: CustomTextStyle.labelLarge(
+                      color: AppColors.primaryRegular),
+                ),
               )
             ],
           ),
@@ -225,10 +232,15 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const Spacer(),
-              Text(
-                "View all >",
-                style:
-                    CustomTextStyle.labelLarge(color: AppColors.primaryRegular),
+              InkWell(
+                onTap: () {
+                  Get.to(() => const BmcPbr());
+                },
+                child: Text(
+                  "View all >",
+                  style: CustomTextStyle.labelLarge(
+                      color: AppColors.primaryRegular),
+                ),
               )
             ],
           ),
