@@ -43,7 +43,6 @@ class Profile extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(12),
-            height: Get.height * 0.3,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: AppColors.surfaceRegular),
@@ -68,7 +67,7 @@ class Profile extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Container(
                   width: 54,

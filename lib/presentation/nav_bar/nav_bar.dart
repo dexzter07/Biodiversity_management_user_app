@@ -36,7 +36,7 @@ class _NavScreenBarState extends State<NavScreenBar>
       extendBody: true,
       body: pages[widget.currentIndex],
       bottomNavigationBar: SizedBox(
-        height: Get.height * 0.09,
+        height: Get.height * 0.11,
         child: Card(
           elevation: 10,
           margin: EdgeInsets.zero,
@@ -92,6 +92,9 @@ class _NavScreenBarState extends State<NavScreenBar>
                           color: widget.currentIndex == 1
                               ? AppColors.primaryRegular
                               : AppColors.textSecondary),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     )
                   ],
                 ),

@@ -17,7 +17,6 @@ class CustomPublicationComponent extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         padding: const EdgeInsets.all(4),
-        height: Get.height * 0.12,
         child: Row(
           children: [
             ClipRRect(
